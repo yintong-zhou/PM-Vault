@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PM Vault Form", "PM Vault Form\PM Vault Form.csproj", "{D5A7E9C9-E4E5-485A-A9BF-CE334222B008}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PM Vault Console", "PM Vault Console\PM Vault Console.csproj", "{9FEBF9A8-62CD-4C3F-A10C-FCCBF349C55C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D5A7E9C9-E4E5-485A-A9BF-CE334222B008}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5A7E9C9-E4E5-485A-A9BF-CE334222B008}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5A7E9C9-E4E5-485A-A9BF-CE334222B008}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5A7E9C9-E4E5-485A-A9BF-CE334222B008}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FEBF9A8-62CD-4C3F-A10C-FCCBF349C55C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FEBF9A8-62CD-4C3F-A10C-FCCBF349C55C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FEBF9A8-62CD-4C3F-A10C-FCCBF349C55C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FEBF9A8-62CD-4C3F-A10C-FCCBF349C55C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8506987B-9AD5-49CE-AFDD-55025D94B108}
+	EndGlobalSection
+EndGlobal
