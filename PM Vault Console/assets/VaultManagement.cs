@@ -175,6 +175,7 @@ namespace PM_Vault_Console
                         Title = content[0].Trim(),
                         Username = content[1].Trim(),
                         Password = content[2].Trim(),
+                        Note = content[3].Trim()
                     };
 
                     // insert new vault into Vault Array
