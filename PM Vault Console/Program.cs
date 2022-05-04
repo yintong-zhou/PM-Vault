@@ -9,6 +9,7 @@ namespace PM_Vault_Console
        
         static void Main(string[] args)
         {
+            VaultCommand c = new VaultCommand();
             VaultHelper h = new VaultHelper();
             VaultManagement m = new VaultManagement();
             HiddenPassword p = new HiddenPassword();
@@ -33,7 +34,7 @@ namespace PM_Vault_Console
 
             if (!UserPermission)
             {
-                WriteLine("User is not authenticated.");
+                WriteLine("Wrong Credentials.");
                 goto LOGIN;
             }
             else
@@ -41,7 +42,7 @@ namespace PM_Vault_Console
                 START:
                 Write(Environment.NewLine + "Enter comand: ");
                 string cmd = ReadLine();
-                if(cmd == "addaccount")
+                if(cmd == c.AddAccount)
                 {
                     WriteLine("$(Write in this order: title, username, password, comment)");
                     Write("> ");
@@ -49,7 +50,7 @@ namespace PM_Vault_Console
                     m.AddAccount($"{h.programPath}\\{h.localFileName}", password, title);
                     goto START;
                 }
-                if (cmd == "addnote")
+                if (cmd == c.AddNote)
                 {
                     WriteLine("$(Write in this order: title, comment)");
                     Write("> ");
@@ -57,15 +58,15 @@ namespace PM_Vault_Console
                     m.AddNote($"{h.programPath}\\{h.localFileName}", password, title);
                     goto START;
                 }
-                else if(cmd == "readall")
+                else if(cmd == c.ReadAll)
                 {
                     m.ReadAll($"{h.programPath}\\{h.localFileName}", password);
                 }
-                else if (cmd == "readlist")
+                else if (cmd == c.ReadList)
                 {
                     m.ReadList($"{h.programPath}\\{h.localFileName}", password);
                 }
-                else if(cmd.StartsWith("remove"))
+                else if(cmd.StartsWith(c.Remove))
                 {
                     var name = cmd.Split(' ');
                     if (name.Length > 1)
@@ -79,7 +80,7 @@ namespace PM_Vault_Console
                         goto START;
                     }
                 }
-                else if (cmd.StartsWith("find"))
+                else if (cmd.StartsWith(c.Find))
                 {
                     var name = cmd.Split(' ');
                     if (name.Length > 1)
@@ -93,7 +94,7 @@ namespace PM_Vault_Console
                         goto START;
                     }
                 }
-                else if (cmd.StartsWith("update"))
+                else if (cmd.StartsWith(c.Update))
                 {
                     var name = cmd.Split(' ');
                     if (name.Length > 1)
@@ -107,7 +108,7 @@ namespace PM_Vault_Console
                         goto START;
                     }
                 }
-                else if (cmd.StartsWith("generate"))
+                else if (cmd.StartsWith(c.Generate))
                 {
                     var item = cmd.Split(' ');
                     try
@@ -121,11 +122,11 @@ namespace PM_Vault_Console
                         WriteLine("Number length is not valid");
                     }
                 }
-                else if (cmd == "exit")
+                else if (cmd == c.Exit)
                 {
                     Environment.Exit(0);
                 }
-                else if (cmd == "help")
+                else if (cmd == c.Help)
                 {
                     h.ShowHelp();
                 }

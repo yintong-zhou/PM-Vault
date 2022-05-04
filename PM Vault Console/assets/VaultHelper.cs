@@ -4,6 +4,7 @@ using static System.Console;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
+using System.Configuration;
 
 namespace PM_Vault_Console
 {
@@ -45,14 +46,14 @@ namespace PM_Vault_Console
         public void LoadingInfo()
         {
             // direcotry and file name
-            localFileName = "pmvault.json";
+            localFileName = ConfigurationManager.AppSettings["DatabaseName"];
             programPath = Directory.GetCurrentDirectory();
         }
 
         public void LogWriter(string message, string stackTrace)
         {
-            WriteLine($"EXCEPTION - {message}");
-            WriteLine($"STACKTRACE - {stackTrace}");
+            WriteLine(Environment.NewLine + $"EXCEPTION - {message}");
+            WriteLine($"STACKTRACE - {stackTrace}" + Environment.NewLine);
         }
 
         public bool CredentialControl(string user, string password)
@@ -67,10 +68,7 @@ namespace PM_Vault_Console
 
                 // check credentials
                 if (resultJson["Name"].ToString() == user)
-                {
-                    if (resultJson["MasterPassword"].ToString() == password) return true;
-                    else WriteLine("Password is not correct.");
-                }
+                    return true;
                 else WriteLine("Username is not correct.");
             }
             catch(Exception ex)
