@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Models\Helper.cs" />
     <Compile Include="Assets\Security\Cryptography.cs" />
     <Compile Include="Assets\Security\HiddenPassword.cs" />
     <Compile Include="Assets\Models\User.cs" />

@@ -11,7 +11,9 @@ namespace PM_Vault_Console
     class VaultHelper
     {
         Cryptography crypto = new Cryptography();
-        
+        VaultCommand c = new VaultCommand();
+        List<Helper> helps;
+
         public string phraseKey { get; set; }
         public string localFileName { get; set; }
         public string programPath { get; set; }
@@ -30,17 +32,30 @@ namespace PM_Vault_Console
             WriteLine(Environment.NewLine + "Beta version - Password Manager Vault");
         }
 
+        internal List<Helper> HelperInitialize()
+        {
+            helps = new List<Helper>();
+            helps.Add(new Helper { Command = c.AddNote, Description = "Add new note" });
+            helps.Add(new Helper { Command = c.AddAccount, Description = "Add new account" });
+            helps.Add(new Helper { Command = c.ReadAll, Description = "Read all accounts or notes" });
+            helps.Add(new Helper { Command = c.ReadList, Description = "Read all accounts or notes title" });
+            helps.Add(new Helper { Command = c.Remove, Description = "Remove an account (remove %ACCOUNT NAME% - remove myaccount)" });
+            helps.Add(new Helper { Command = c.Find, Description = "Find a specific account (find %ACCOUNT NAME% - find myaccount)" });
+            helps.Add(new Helper { Command = c.Update, Description = "Update a specific account (update %ACCOUNT NAME% - update myaccount)" });
+            helps.Add(new Helper { Command = c.Generate, Description = "Generate a random password with specific length (generate %LENGTH% - generate 10)" });
+            helps.Add(new Helper { Command = c.Exit, Description = "Close Terminal" });
+
+            return helps;
+        }
+
         public void ShowHelp()
         {
-            WriteLine(Environment.NewLine + "addnote : add new note");
-            WriteLine("addaccount : add new account");
-            WriteLine("readall : read all notes");
-            WriteLine("readlist : read all notes title");
-            WriteLine("remove %NAME% : remove an account");
-            WriteLine("find %NAME% : find a specific account");
-            WriteLine("update %NAME% : update a specific account");
-            WriteLine("generate %LENGTH% : generate a random password with specific length");
-            WriteLine("exit : close terminal");
+            HelperInitialize();
+            WriteLine("");
+            foreach(var item in helps)
+            {
+                WriteLine(item.Command.PadRight(15) + item.Description);
+            }
         }
 
         public void LoadingInfo()

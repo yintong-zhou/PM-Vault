@@ -19,7 +19,7 @@ namespace PM_Vault_Console
             h.ShowTitle();
 
             LOGIN:
-            Write(nL + "Username: ");
+            Write(nL + "Login: ");
             string username = ReadLine();
             Write("Password: ");
             string password = p.Password();
